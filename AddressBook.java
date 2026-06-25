@@ -13,9 +13,15 @@ public class AddressBook {
     }
 
     public void displayContacts() {
+
+        if (contacts.isEmpty()) {
+            System.out.println("No Contacts Found");
+            return;
+        }
+
         for (Contact contact : contacts) {
             contact.display();
-            System.out.println("--------------------");
+            System.out.println("---------------------");
         }
     }
 
