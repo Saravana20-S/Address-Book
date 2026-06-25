@@ -9,6 +9,7 @@ public class AddressBookMain {
         System.out.println("Welcome to Address Book Program");
 
         Scanner sc = new Scanner(System.in);
+        AddressBook addressBook = new AddressBook();
 
         System.out.print("Enter First Name: ");
         String firstName = sc.nextLine();
@@ -45,11 +46,10 @@ public class AddressBookMain {
                 email
         );
 
-        AddressBook addressBook = new AddressBook();
         addressBook.addContact(contact);
 
-        System.out.println("\nContact Details:");
-        addressBook.displayContact();
+        System.out.println("\nContact Details");
+        addressBook.displayContacts();
 
         sc.close();
     }

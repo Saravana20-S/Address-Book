@@ -1,16 +1,20 @@
 package com.oops.addressbook;
 
+import java.util.ArrayList;
+
 public class AddressBook {
 
-    Contact contact;
+    private ArrayList<Contact> contacts = new ArrayList<>();
 
     public void addContact(Contact contact) {
-        this.contact = contact;
+        contacts.add(contact);
+        System.out.println("Contact Added Successfully");
     }
 
-    public void displayContact() {
-        if (contact != null) {
+    public void displayContacts() {
+        for (Contact contact : contacts) {
             contact.display();
+            System.out.println("--------------------");
         }
     }
 }
