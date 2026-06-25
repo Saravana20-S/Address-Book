@@ -48,6 +48,14 @@ public class AddressBookMain {
 
         addressBook.addContact(contact);
 
+        System.out.print("\nEnter First Name to Edit: ");
+        String editName = sc.nextLine();
+
+        addressBook.editContact(editName);
+
+        System.out.println("\nUpdated Contact Details:");
+        addressBook.displayContacts();
+
         System.out.println("\nContact Details");
         addressBook.displayContacts();
 
