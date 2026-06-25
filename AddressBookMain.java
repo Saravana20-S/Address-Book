@@ -1,5 +1,4 @@
 package com.oops.addressbook;
-
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -9,7 +8,15 @@ public class AddressBookMain {
         System.out.println("Welcome to Address Book Program");
 
         Scanner sc = new Scanner(System.in);
-        AddressBook addressBook = new AddressBook();
+
+        AddressBookSystem system = new AddressBookSystem();
+
+        System.out.print("Enter Address Book Name: ");
+        String bookName = sc.nextLine();
+
+        system.addAddressBook(bookName);
+
+        AddressBook addressBook = system.getAddressBook(bookName);
 
         char choice;
 
@@ -34,7 +41,7 @@ public class AddressBookMain {
             String zip = sc.nextLine();
 
             System.out.print("Enter Phone Number: ");
-            String phoneNumber = sc.nextLine();
+            String phone = sc.nextLine();
 
             System.out.print("Enter Email: ");
             String email = sc.nextLine();
@@ -46,7 +53,7 @@ public class AddressBookMain {
                     city,
                     state,
                     zip,
-                    phoneNumber,
+                    phone,
                     email
             );
 
@@ -58,20 +65,10 @@ public class AddressBookMain {
 
         } while (choice == 'Y' || choice == 'y');
 
+        system.displayAddressBooks();
 
-        System.out.print("\nEnter First Name to Edit: ");
-        String editName = sc.nextLine();
-
-        addressBook.editContact(editName);
-
-        System.out.print("\nEnter First Name to Delete: ");
-        String deleteName = sc.nextLine();
-
-        addressBook.deleteContact(deleteName);
-
-        System.out.println("\nRemaining Contacts:");
+        System.out.println("\nContacts in " + bookName);
         addressBook.displayContacts();
-
 
         sc.close();
     }
