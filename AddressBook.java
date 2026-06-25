@@ -52,4 +52,23 @@ public class AddressBook {
 
         System.out.println("Contact Not Found");
     }
+
+    public void deleteContact(String firstName) {
+
+        Contact contactToDelete = null;
+
+        for (Contact contact : contacts) {
+            if (contact.firstName.equalsIgnoreCase(firstName)) {
+                contactToDelete = contact;
+                break;
+            }
+        }
+
+        if (contactToDelete != null) {
+            contacts.remove(contactToDelete);
+            System.out.println("Contact Deleted Successfully");
+        } else {
+            System.out.println("Contact Not Found");
+        }
+    }
 }

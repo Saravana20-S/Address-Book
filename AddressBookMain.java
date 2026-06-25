@@ -53,11 +53,14 @@ public class AddressBookMain {
 
         addressBook.editContact(editName);
 
-        System.out.println("\nUpdated Contact Details:");
+        System.out.print("\nEnter First Name to Delete: ");
+        String deleteName = sc.nextLine();
+
+        addressBook.deleteContact(deleteName);
+
+        System.out.println("\nRemaining Contacts:");
         addressBook.displayContacts();
 
-        System.out.println("\nContact Details");
-        addressBook.displayContacts();
 
         sc.close();
     }
