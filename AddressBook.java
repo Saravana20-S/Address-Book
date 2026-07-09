@@ -23,6 +23,7 @@ public class AddressBook {
         System.out.println("Contact Added Successfully");
     }
 
+
     public void displayContacts() {
 
         if (contacts.isEmpty()) {
