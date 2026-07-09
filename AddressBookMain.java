@@ -96,6 +96,11 @@ public class AddressBookMain {
         System.out.println("Number of Persons in " + state + " : "
                 + system.getPersonCountByState(state));
 
+
+        System.out.println("\nContacts Sorted by Name:");
+
+        addressBook.sortContactsByName();
+
         sc.close();
     }
 }

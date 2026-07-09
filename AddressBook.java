@@ -3,6 +3,7 @@ package com.oops.addressbook;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.Scanner;
+import java.util.Comparator;
 
 public class AddressBook {
 
@@ -71,6 +72,14 @@ public class AddressBook {
 
     public ArrayList<Contact> getContacts() {
         return contacts;
+    }
+
+    public void sortContactsByName() {
+
+        contacts.stream()
+                .sorted(Comparator.comparing(Contact::getFirstName)
+                        .thenComparing(Contact::getLastName))
+                .forEach(System.out::println);
     }
 
     public void deleteContact(String firstName) {
