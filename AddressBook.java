@@ -1,6 +1,7 @@
 package com.oops.addressbook;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -8,6 +9,15 @@ public class AddressBook {
     private ArrayList<Contact> contacts = new ArrayList<>();
 
     public void addContact(Contact contact) {
+
+        boolean isDuplicate = contacts.stream()
+                .anyMatch(existingContact -> existingContact.equals(contact));
+
+        if (isDuplicate) {
+            System.out.println("Duplicate Contact Found. Contact Not Added.");
+            return;
+        }
+
         contacts.add(contact);
         System.out.println("Contact Added Successfully");
     }
