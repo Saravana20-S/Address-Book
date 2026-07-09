@@ -69,6 +69,10 @@ public class AddressBook {
         System.out.println("Contact Not Found");
     }
 
+    public ArrayList<Contact> getContacts() {
+        return contacts;
+    }
+
     public void deleteContact(String firstName) {
 
         Contact contactToDelete = null;

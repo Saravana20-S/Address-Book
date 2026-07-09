@@ -1,6 +1,8 @@
 package com.oops.addressbook;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AddressBookSystem {
 
@@ -16,6 +18,24 @@ public class AddressBookSystem {
         addressBooks.put(name, new AddressBook());
 
         System.out.println("Address Book Created Successfully");
+    }
+
+    public List<Contact> searchPersonByCity(String city) {
+
+        return addressBooks.values()
+                .stream()
+                .flatMap(addressBook -> addressBook.getContacts().stream())
+                .filter(contact -> contact.city.equalsIgnoreCase(city))
+                .collect(Collectors.toList());
+    }
+
+    public List<Contact> searchPersonByState(String state) {
+
+        return addressBooks.values()
+                .stream()
+                .flatMap(addressBook -> addressBook.getContacts().stream())
+                .filter(contact -> contact.state.equalsIgnoreCase(state))
+                .collect(Collectors.toList());
     }
 
     public AddressBook getAddressBook(String name) {

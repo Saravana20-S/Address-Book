@@ -70,6 +70,22 @@ public class AddressBookMain {
         System.out.println("\nContacts in " + bookName);
         addressBook.displayContacts();
 
+        System.out.print("\nEnter City to Search: ");
+        String city = sc.nextLine();
+
+        System.out.println("\nPersons in " + city);
+
+        system.searchPersonByCity(city)
+                .forEach(Contact::display);
+
+        System.out.print("\nEnter State to Search: ");
+        String state = sc.nextLine();
+
+        System.out.println("\nPersons in " + state);
+
+        system.searchPersonByState(state)
+                .forEach(Contact::display);
+
         sc.close();
     }
 }
