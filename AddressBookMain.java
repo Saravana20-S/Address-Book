@@ -67,8 +67,76 @@ public class AddressBookMain {
 
         system.displayAddressBooks();
 
-        System.out.println("\nContacts in " + bookName);
-        addressBook.displayContacts();
+        system.buildDictionaries();
+
+        //search
+//        System.out.print("\nEnter City: ");
+//        String city = sc.nextLine();
+//
+//        System.out.println("\nPersons in " + city);
+//        system.viewPersonsByCity(city);
+//
+//        System.out.print("\nEnter State: ");
+//        String state = sc.nextLine();
+//
+//        System.out.println("\nPersons in " + state);
+//        system.viewPersonsByState(state);
+//
+//        system.searchPersonByCity(city)
+//                .forEach(Contact::display);
+
+
+        //count
+//        System.out.print("\nEnter City to Count Persons: ");
+//        String city = sc.nextLine();
+//
+//        System.out.println("Number of Persons in " + city + " : "
+//                + system.getPersonCountByCity(city));
+//
+//        System.out.print("\nEnter State to Count Persons: ");
+//        String state = sc.nextLine();
+//
+//        System.out.println("Number of Persons in " + state + " : "
+//                + system.getPersonCountByState(state));
+//
+//
+//        System.out.println("\nContacts Sorted by Name:");
+//
+//        addressBook.sortContactsByName();
+
+        //sort
+//        System.out.println("\nSort Contacts By");
+//        System.out.println("1. City");
+//        System.out.println("2. State");
+//        System.out.println("3. Zip");
+//
+//        System.out.print("Enter Choice: ");
+//        int option = sc.nextInt();
+//
+//        switch (option) {
+//
+//            case 1:
+//                System.out.println("\nContacts Sorted By City");
+//                addressBook.sortContactsByCity();
+//                break;
+//
+//            case 2:
+//                System.out.println("\nContacts Sorted By State");
+//                addressBook.sortContactsByState();
+//                break;
+//
+//            case 3:
+//                System.out.println("\nContacts Sorted By Zip");
+//                addressBook.sortContactsByZip();
+//                break;
+//
+//            default:
+//                System.out.println("Invalid Choice");
+//        }
+
+        FileOperations.writeContacts(addressBook);
+
+        FileOperations.readContacts();
 
         sc.close();
     }

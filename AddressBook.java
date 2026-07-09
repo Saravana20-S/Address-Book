@@ -1,16 +1,28 @@
 package com.oops.addressbook;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import java.util.Scanner;
+import java.util.Comparator;
 
 public class AddressBook {
 
     private ArrayList<Contact> contacts = new ArrayList<>();
 
     public void addContact(Contact contact) {
+
+        boolean isDuplicate = contacts.stream()
+                .anyMatch(existingContact -> existingContact.equals(contact));
+
+        if (isDuplicate) {
+            System.out.println("Duplicate Contact Found. Contact Not Added.");
+            return;
+        }
+
         contacts.add(contact);
         System.out.println("Contact Added Successfully");
     }
+
 
     public void displayContacts() {
 
@@ -57,6 +69,39 @@ public class AddressBook {
         }
 
         System.out.println("Contact Not Found");
+    }
+
+    public ArrayList<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void sortContactsByName() {
+
+        contacts.stream()
+                .sorted(Comparator.comparing(Contact::getFirstName)
+                        .thenComparing(Contact::getLastName))
+                .forEach(System.out::println);
+    }
+
+    public void sortContactsByCity() {
+
+        contacts.stream()
+                .sorted(Comparator.comparing(Contact::getCity))
+                .forEach(System.out::println);
+    }
+
+    public void sortContactsByState() {
+
+        contacts.stream()
+                .sorted(Comparator.comparing(Contact::getState))
+                .forEach(System.out::println);
+    }
+
+    public void sortContactsByZip() {
+
+        contacts.stream()
+                .sorted(Comparator.comparing(Contact::getZip))
+                .forEach(System.out::println);
     }
 
     public void deleteContact(String firstName) {
