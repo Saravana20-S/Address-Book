@@ -1,12 +1,13 @@
 package com.oops.addressbook;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBookSystem {
 
     private HashMap<String, AddressBook> addressBooks = new HashMap<>();
+    private Map<String, List<Contact>> cityDictionary = new HashMap<>();
+    private Map<String, List<Contact>> stateDictionary = new HashMap<>();
 
     public void addAddressBook(String name) {
 
@@ -38,6 +39,42 @@ public class AddressBookSystem {
                 .collect(Collectors.toList());
     }
 
+    public void buildDictionaries() {
+
+        cityDictionary = addressBooks.values()
+                .stream()
+                .flatMap(addressBook -> addressBook.getContacts().stream())
+                .collect(Collectors.groupingBy(contact -> contact.city));
+
+        stateDictionary = addressBooks.values()
+                .stream()
+                .flatMap(addressBook -> addressBook.getContacts().stream())
+                .collect(Collectors.groupingBy(contact -> contact.state));
+    }
+
+    public void viewPersonsByCity(String city) {
+
+        List<Contact> persons = cityDictionary.get(city);
+
+        if (persons == null || persons.isEmpty()) {
+            System.out.println("No Persons Found");
+            return;
+        }
+
+        persons.forEach(Contact::display);
+    }
+
+    public void viewPersonsByState(String state) {
+
+        List<Contact> persons = stateDictionary.get(state);
+
+        if (persons == null || persons.isEmpty()) {
+            System.out.println("No Persons Found");
+            return;
+        }
+
+        persons.forEach(Contact::display);
+    }
     public AddressBook getAddressBook(String name) {
         return addressBooks.get(name);
     }
