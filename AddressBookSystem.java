@@ -75,6 +75,23 @@ public class AddressBookSystem {
 
         persons.forEach(Contact::display);
     }
+
+    public long getPersonCountByCity(String city) {
+
+        return cityDictionary.getOrDefault(city, new ArrayList<>())
+                .stream()
+                .count();
+    }
+
+
+    public long getPersonCountByState(String state) {
+
+        return stateDictionary.getOrDefault(state, new ArrayList<>())
+                .stream()
+                .count();
+    }
+
+
     public AddressBook getAddressBook(String name) {
         return addressBooks.get(name);
     }

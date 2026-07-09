@@ -69,20 +69,32 @@ public class AddressBookMain {
 
         system.buildDictionaries();
 
-        System.out.print("\nEnter City: ");
+//        System.out.print("\nEnter City: ");
+//        String city = sc.nextLine();
+//
+//        System.out.println("\nPersons in " + city);
+//        system.viewPersonsByCity(city);
+//
+//        System.out.print("\nEnter State: ");
+//        String state = sc.nextLine();
+//
+//        System.out.println("\nPersons in " + state);
+//        system.viewPersonsByState(state);
+//
+//        system.searchPersonByCity(city)
+//                .forEach(Contact::display);
+
+        System.out.print("\nEnter City to Count Persons: ");
         String city = sc.nextLine();
 
-        System.out.println("\nPersons in " + city);
-        system.viewPersonsByCity(city);
+        System.out.println("Number of Persons in " + city + " : "
+                + system.getPersonCountByCity(city));
 
-        System.out.print("\nEnter State: ");
+        System.out.print("\nEnter State to Count Persons: ");
         String state = sc.nextLine();
 
-        System.out.println("\nPersons in " + state);
-        system.viewPersonsByState(state);
-
-        system.searchPersonByCity(city)
-                .forEach(Contact::display);
+        System.out.println("Number of Persons in " + state + " : "
+                + system.getPersonCountByState(state));
 
         sc.close();
     }
