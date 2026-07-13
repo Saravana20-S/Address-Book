@@ -1,7 +1,7 @@
 package com.oops.addressbook;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Comparator;
 
@@ -71,7 +71,7 @@ public class AddressBook {
         System.out.println("Contact Not Found");
     }
 
-    public ArrayList<Contact> getContacts() {
+    public List<Contact> getContacts() {
         return contacts;
     }
 
