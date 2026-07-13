@@ -69,6 +69,11 @@ public class AddressBookMain {
 
         system.buildDictionaries();
 
+
+        CSVFileOperations.writeContacts(addressBook);
+
+        CSVFileOperations.readContacts();
+
         //search
 //        System.out.print("\nEnter City: ");
 //        String city = sc.nextLine();
