@@ -69,10 +69,15 @@ public class AddressBookMain {
 
         system.buildDictionaries();
 
+// UC14: CSV OPERATIONS
+//        CSVFileOperations.writeContacts(addressBook);
+//        CSVFileOperations.readContacts();
 
-        CSVFileOperations.writeContacts(addressBook);
 
-        CSVFileOperations.readContacts();
+ // UC15: JSON OPERATIONS
+        JSONFileOperations.writeContacts(addressBook);
+        JSONFileOperations.readContacts();
+
 
         //search
 //        System.out.print("\nEnter City: ");
